@@ -1,0 +1,64 @@
+# MCMC
+
+The code for generating the Conditional Probability Tables and running the
+simulation is in `mcmc.py`. The conditional probability tables themselves are in
+`cpts.txt`. The png files contain the plotted monte carlo output.
+
+In this assignment, we were given a Bayesian network describing the evolution of
+symptoms from COVID-19 (Some of the probabilities are made up for the purposes
+of this exercise). This network can be seen in `BNforMCMC.pdf`. From this, we
+were told to compute the conditional probability tables of getting to any node
+given some combination of values for the other nodes. Using using the Gibbs
+Samling method for Markov Chain Monte Carlo analysis, we were asked to estimate
+the probability of COVID-19 given that nausea (middle-right node) was
+experienced after 1 (arbitrary) time period and both fever and nausea
+(bottom-middle node) were experienced after 2 time periods.
+
+The code works in the following way. Known probabilities that were given in the
+assignment, as well as the dependencies between nodes in the original Bayesian
+network, are explicitly listed at the top of the file. Given this information
+and the constraints we set (in this case, nausea = True and Fever & Nausea =
+True), the program computes the Markov blanket of each variable. From each
+variable, it computes the probability of that variable given each combination of
+blanket variables. The probabilities are recursively computed with Bayes'
+Theorem and chaining together dependent values until known base values are
+reached.
+
+The outcome of the Gibbs sampling is plotted. We were told to plot 5 runs with
+10,000 combinations in each and see if the runs converged to one value. Each run
+started with a random state, and each iteration has up to one condition
+"flipped" according to the probability given in the CPT for the previous
+iteration. The value of the desired probability P(C19 | N, FN), is calculated to
+be 0.03736 using the same method as used to create the CPTs and is printed below
+them. Then, the output of the simulation is plotted. The plots can be seen in 
+`5x10000.png` and `100x100000.png`. In the five run plot, it is difficult to see
+a converging value. But when the runs are longer, as shown in `100x100000.png`, 
+we can see a clear convergence to around 3.7%, the same value computed above.
+
+Learning outcome:
+
+After I computed a few CPTs by hand, I wrote a script in Python to compute all
+of them for me. This ended up taking more time than it would have to compute
+them by hand, but in the process I was able to generalize the procedure for
+creating the tables in a way that I could more easily describe them to someone
+else.
+
+I also learned that reasoning about Bayesian networks and conditional
+probabilities can be difficult. Throughout the process, I made a number of
+logical and arithmetic errors because "sanity-checking"  a non-trivial
+conditional probability is not something done intuitively.
+
+In my first submission, I originally conducted the Gibbs sampling incorrectly,
+which lead to my simulated probability to not converge. There were two issues.
+One was that I was accidentally allowing the nausea and fever and nausea states
+to be flipped, which lead the incorrect probability to be estimated. I also
+neglected to update the state after each CPT was checked, so the a new sample
+was added after each possible variable change, instead of after all of the
+variables were updated. I credit William Berry for helping me realize this
+error. I also discussed the Gibbs sampling process with Javid Fathi, who showed
+me his code in an effort to help me debug (the code submitted here is my own).
+My errors lead me to falsely conclude that there were a few states that were
+local minima, where the probability of a COVID-19 diagnosis is low, both for
+itself and all of its neighbors. Outside of those states, the aggregate
+probability converged to around 30%. When I corrected this error, the simulated
+probability correctly converged to the same value I calculated, 0.03736.

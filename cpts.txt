@@ -1,0 +1,59 @@
+Conditional probability table for c19
+P( c19 | ('fever', 'nausea', 'cough')) = 0.6949133738882828
+P( c19 | ('fever', 'nausea', '~cough')) = 0.0051384431924002
+P( c19 | ('~fever', 'nausea', 'cough')) = 0.06662671982669213
+P( c19 | ('~fever', 'nausea', '~cough')) = 0.00016183937305072716
+Conditional probability table for fever
+P( fever | ('c19', 'fn', 'nausea', 'fc', 'cough')) = 0.9326862207216713
+P( fever | ('c19', 'fn', 'nausea', 'fc', '~cough')) = 0.9610601644872362
+P( fever | ('c19', 'fn', 'nausea', '~fc', 'cough')) = 0.5975126171593368
+P( fever | ('c19', 'fn', 'nausea', '~fc', '~cough')) = 0.2451379131849444
+P( fever | ('~c19', 'fn', 'nausea', 'fc', 'cough')) = 0.30276046304541404
+P( fever | ('~c19', 'fn', 'nausea', 'fc', '~cough')) = 0.43613286524439643
+P( fever | ('~c19', 'fn', 'nausea', '~fc', 'cough')) = 0.04445606694560669
+P( fever | ('~c19', 'fn', 'nausea', '~fc', '~cough')) = 0.010074671091620253
+Conditional probability table for nausea
+P( nausea | ('c19', 'fn', 'fever', 'cn', 'cough')) = 0.7784308839808343
+P( nausea | ('c19', 'fn', 'fever', 'cn', '~cough')) = 0.9184401641932427
+P( nausea | ('c19', 'fn', 'fever', '~cn', 'cough')) = 0.4454906837815629
+P( nausea | ('c19', 'fn', 'fever', '~cn', '~cough')) = 0.5920109734807547
+P( nausea | ('c19', 'fn', '~fever', 'cn', 'cough')) = 0.9496947211591833
+P( nausea | ('c19', 'fn', '~fever', 'cn', '~cough')) = 0.9837427387537421
+P( nausea | ('c19', 'fn', '~fever', '~cn', 'cough')) = 0.8119266055045871
+P( nausea | ('c19', 'fn', '~fever', '~cn', '~cough')) = 0.8863279853495889
+P( nausea | ('~c19', 'fn', 'fever', 'cn', 'cough')) = 0.37901900962215446
+P( nausea | ('~c19', 'fn', 'fever', 'cn', '~cough')) = 0.661744966442953
+P( nausea | ('~c19', 'fn', 'fever', '~cn', 'cough')) = 0.12247838616714696
+P( nausea | ('~c19', 'fn', 'fever', '~cn', '~cough')) = 0.20133444537114262
+P( nausea | ('~c19', 'fn', '~fever', 'cn', 'cough')) = 0.7663421418636996
+P( nausea | ('~c19', 'fn', '~fever', 'cn', '~cough')) = 0.9131378935939196
+P( nausea | ('~c19', 'fn', '~fever', '~cn', 'cough')) = 0.4285714285714285
+P( nausea | ('~c19', 'fn', '~fever', '~cn', '~cough')) = 0.5753003632299526
+Conditional probability table for cough
+P( cough | ('c19', 'fc', 'fever', 'cn', 'nausea')) = 0.9908372827804107
+P( cough | ('c19', 'fc', 'fever', '~cn', 'nausea')) = 0.9331019092486982
+P( cough | ('c19', 'fc', '~fever', 'cn', 'nausea')) = 0.9948352626892253
+P( cough | ('c19', 'fc', '~fever', '~cn', 'nausea')) = 0.9613079019073569
+P( cough | ('c19', '~fc', 'fever', 'cn', 'nausea')) = 0.9980569514237856
+P( cough | ('c19', '~fc', 'fever', '~cn', 'nausea')) = 0.985130890052356
+P( cough | ('c19', '~fc', '~fever', 'cn', 'nausea')) = 0.9911787072243345
+P( cough | ('c19', '~fc', '~fever', '~cn', 'nausea')) = 0.9354545454545454
+P( cough | ('~c19', 'fc', 'fever', 'cn', 'nausea')) = 0.19692307692307692
+P( cough | ('~c19', 'fc', 'fever', '~cn', 'nausea')) = 0.03065868263473054
+P( cough | ('~c19', 'fc', '~fever', 'cn', 'nausea')) = 0.30400000000000005
+P( cough | ('~c19', 'fc', '~fever', '~cn', 'nausea')) = 0.05333333333333333
+P( cough | ('~c19', '~fc', 'fever', 'cn', 'nausea')) = 0.5380530973451325
+P( cough | ('~c19', '~fc', 'fever', '~cn', 'nausea')) = 0.13061224489795903
+P( cough | ('~c19', '~fc', '~fever', 'cn', 'nausea')) = 0.20305343511450383
+P( cough | ('~c19', '~fc', '~fever', '~cn', 'nausea')) = 0.031818181818181815
+Conditional probability table for fn
+P( fn | ('fever', 'nausea')) = 0.85
+P( fn | ('~fever', 'nausea')) = 0.58
+Conditional probability table for fc
+P( fc | ('fever', 'cough')) = 0.8
+P( fc | ('fever', '~cough')) = 0.95
+P( fc | ('~fever', 'cough')) = 0.3
+P( fc | ('~fever', '~cough')) = 0.2
+Conditional probability table for cn
+P( cn | ('nausea', 'cough')) = 0.76
+P( cn | ('nausea', '~cough')) = 0.29
